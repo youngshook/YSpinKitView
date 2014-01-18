@@ -10,9 +10,9 @@
 #include <tgmath.h>
 
 
-static CGFloat kRTSpinKitDegToRad = 0.0174532925;
+static CGFloat kYSpinKitDegToRad = 0.0174532925;
 
-static CATransform3D RTSpinKit3DRotationWithPerspective(CGFloat perspective,
+static CATransform3D YSpinKit3DRotationWithPerspective(CGFloat perspective,
                                                         CGFloat angle,
                                                         CGFloat x,
                                                         CGFloat y,
@@ -24,7 +24,7 @@ static CATransform3D RTSpinKit3DRotationWithPerspective(CGFloat perspective,
 }
 
 @interface YSpinKitView ()
-@property (nonatomic, assign) RTSpinKitViewStyle style;
+@property (nonatomic, assign) YSpinKitViewStyle style;
 @property (nonatomic, assign, getter = isStopped) BOOL stopped;
 @end
 
@@ -52,7 +52,7 @@ static CATransform3D RTSpinKit3DRotationWithPerspective(CGFloat perspective,
                                                      name:UIApplicationDidEnterBackgroundNotification
                                                    object:nil];
         
-        if (style == RTSpinKitViewStylePlane) {
+        if (style == YSpinKitViewStylePlane) {
             CALayer *plane = [CALayer layer];
             plane.frame = CGRectInset(self.bounds, 2.0, 2.0);
             plane.backgroundColor = color.CGColor;
@@ -73,9 +73,9 @@ static CATransform3D RTSpinKit3DRotationWithPerspective(CGFloat perspective,
             ];
 
             anim.values = @[
-                [NSValue valueWithCATransform3D:RTSpinKit3DRotationWithPerspective(1.0/120.0, 0, 0, 0, 0)],
-                [NSValue valueWithCATransform3D:RTSpinKit3DRotationWithPerspective(1.0/120.0, M_PI, 0.0, 1.0,0.0)],
-                [NSValue valueWithCATransform3D:RTSpinKit3DRotationWithPerspective(1.0/120.0, M_PI, 0.0, 0.0,1.0)]
+                [NSValue valueWithCATransform3D:YSpinKit3DRotationWithPerspective(1.0/120.0, 0, 0, 0, 0)],
+                [NSValue valueWithCATransform3D:YSpinKit3DRotationWithPerspective(1.0/120.0, M_PI, 0.0, 1.0,0.0)],
+                [NSValue valueWithCATransform3D:YSpinKit3DRotationWithPerspective(1.0/120.0, M_PI, 0.0, 0.0,1.0)]
             ];
 
             [plane addAnimation:anim forKey:@"spinkit-anim"];
@@ -181,19 +181,19 @@ static CATransform3D RTSpinKit3DRotationWithPerspective(CGFloat perspective,
                 CATransform3D t0 = CATransform3DIdentity;
 
                 CATransform3D t1 = CATransform3DMakeTranslation(widthMinusCubeSize, 0.0, 0.0);
-                t1 = CATransform3DRotate(t1, -90.0 * kRTSpinKitDegToRad, 0.0, 0.0, 1.0);
+                t1 = CATransform3DRotate(t1, -90.0 * kYSpinKitDegToRad, 0.0, 0.0, 1.0);
                 t1 = CATransform3DScale(t1, 0.5, 0.5, 1.0);
                 
                 CATransform3D t2 = CATransform3DMakeTranslation(widthMinusCubeSize, widthMinusCubeSize, 0.0);
-                t2 = CATransform3DRotate(t2, -180.0 * kRTSpinKitDegToRad, 0.0, 0.0, 1.0);
+                t2 = CATransform3DRotate(t2, -180.0 * kYSpinKitDegToRad, 0.0, 0.0, 1.0);
                 t2 = CATransform3DScale(t2, 1.0, 1.0, 1.0);
                 
                 CATransform3D t3 = CATransform3DMakeTranslation(0.0, widthMinusCubeSize, 0.0);
-                t3 = CATransform3DRotate(t3, -270.0 * kRTSpinKitDegToRad, 0.0, 0.0, 1.0);
+                t3 = CATransform3DRotate(t3, -270.0 * kYSpinKitDegToRad, 0.0, 0.0, 1.0);
                 t3 = CATransform3DScale(t3, 0.5, 0.5, 1.0);
                 
                 CATransform3D t4 = CATransform3DMakeTranslation(0.0, 0.0, 0.0);
-                t4 = CATransform3DRotate(t4, -360.0 * kRTSpinKitDegToRad, 0.0, 0.0, 1.0);
+                t4 = CATransform3DRotate(t4, -360.0 * kYSpinKitDegToRad, 0.0, 0.0, 1.0);
                 t4 = CATransform3DScale(t4, 1.0, 1.0, 1.0);
 
 

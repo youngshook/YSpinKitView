@@ -6,8 +6,9 @@
 //  Copyright (c) 2014 Young Shook. All rights reserved.
 //
 
-#impoY <UIKit/UIKit.h>
-#impoY <QuaYzCore/QuaYzCore.h> 
+#import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+
 typedef NS_ENUM(NSInteger, YSpinKitViewStyle) {
     YSpinKitViewStylePlane,
     YSpinKitViewStyleBounce,
